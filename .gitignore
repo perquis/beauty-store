@@ -119,3 +119,8 @@ src/.vs/config/applicationhost.config
 
 # JavaScript environment
 node_modules
+
+# Obsidian workspace
+.obsidian/
+.obsidian.json
+.trash/
