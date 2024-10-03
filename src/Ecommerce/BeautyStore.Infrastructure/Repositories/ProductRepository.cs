@@ -13,9 +13,10 @@ namespace BeautyStore.Infrastructure.Repositories
             _context = context;
         }
 
-        Task<Product> IProductRepository.CreateProductAsync(Product product)
+        public async Task CreateProductAsync(Product product)
         {
-            throw new NotImplementedException();
+            _context.Products.Add(product);
+            await _context.SaveChangesAsync();
         }
 
         Task<Product> IProductRepository.DeleteProductAsync(int id)
