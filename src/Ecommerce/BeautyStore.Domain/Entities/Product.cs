@@ -10,5 +10,7 @@
         public int Stock { get; set; } = 0;
         public ProductCategory Category { get; set; }
         public List<ProductImage> Images { get; set; } = new List<ProductImage>();
+
+        public void EncodedName() => Name.Replace(" ", "-").ToLower();
     }
 }
