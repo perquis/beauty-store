@@ -1,4 +1,6 @@
-﻿using BeautyStore.Infrastructure.Persistance;
+﻿using BeautyStore.Domain.Interfaces;
+using BeautyStore.Infrastructure.Persistance;
+using BeautyStore.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +15,8 @@ namespace BeautyStore.Infrastructure.Extensions
 
             services.AddDbContext<BeautyStoreDbContext>(options =>
                 options.UseNpgsql(connectionString));
+
+            services.AddScoped<IProductRepository, ProductRepository>();
 
             return services;
         }
