@@ -9,8 +9,9 @@
         public string Currency { get; set; } = "USD";
         public int Stock { get; set; } = 0;
         public ProductCategory Category { get; set; }
-        public List<ProductImage> Images { get; set; } = new List<ProductImage>();
+        public List<ProductImage>? Images { get; set; } = new List<ProductImage>();
+        public string EncodedName { get; set; } = default!;
 
-        public void EncodedName() => Name.Replace(" ", "-").ToLower();
+        public void EncodeName() => Name.Replace(" ", "-").ToLower();
     }
 }
