@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BeautyStore.Infrastructure.Migrations
 {
     [DbContext(typeof(BeautyStoreDbContext))]
-    [Migration("20241003163903_Created-Currency-Enumeration-And-Applied-It-To-Product-Model")]
-    partial class CreatedCurrencyEnumerationAndAppliedItToProductModel
+    [Migration("20241003170906_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

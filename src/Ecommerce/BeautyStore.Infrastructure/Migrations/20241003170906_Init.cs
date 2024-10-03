@@ -20,9 +20,10 @@ namespace BeautyStore.Infrastructure.Migrations
                     Name = table.Column<string>(type: "text", nullable: false),
                     Price = table.Column<decimal>(type: "numeric", nullable: false),
                     Description = table.Column<string>(type: "text", nullable: false),
-                    Currency = table.Column<string>(type: "text", nullable: false),
+                    Currency = table.Column<int>(type: "integer", nullable: false),
                     Stock = table.Column<int>(type: "integer", nullable: false),
-                    Category = table.Column<int>(type: "integer", nullable: false)
+                    Category = table.Column<int>(type: "integer", nullable: false),
+                    EncodedName = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
