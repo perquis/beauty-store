@@ -1,5 +1,6 @@
 using BeautyStore.Application.Extensions;
 using BeautyStore.Infrastructure.Extensions;
+using BeautyStore.Infrastructure.Seeders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,10 @@ builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
 
 var app = builder.Build();
+var scope = app.Services.CreateScope();
+var seeder = scope.ServiceProvider.GetRequiredService<UserRolesSeeder>();
+
+await seeder.Seed();
 
 if (!app.Environment.IsDevelopment())
 {

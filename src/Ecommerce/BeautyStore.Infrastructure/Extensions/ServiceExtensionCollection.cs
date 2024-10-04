@@ -1,6 +1,7 @@
 ﻿using BeautyStore.Domain.Interfaces;
 using BeautyStore.Infrastructure.Persistance;
 using BeautyStore.Infrastructure.Repositories;
+using BeautyStore.Infrastructure.Seeders;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -22,6 +23,7 @@ namespace BeautyStore.Infrastructure.Extensions
 				.AddEntityFrameworkStores<BeautyStoreDbContext>();
 
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<UserRolesSeeder>();
 
             return services;
         }
