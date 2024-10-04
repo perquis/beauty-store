@@ -2,28 +2,32 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-<ul class="gap-2 flex">
-    @if (SignInManager.IsSignedIn(User))
-    {
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index"
-               title="Manage">Hello @User.Identity.Name!</a>
-        </li>
-        <li class="nav-item">
-            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout"
-                  asp-route-returnUrl="@Url.Page("/", new { area = "" })"
-                  method="post">
-                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-            </form>
-        </li>
-    }
-    else
-    {
-        <li class="block">
-            <a class="bg-indigo-600 px-3 py-2 text-white block rounded" asp-area="Identity" asp-page="/Account/Register">Register</a>
-        </li>
-        <li class="block">
-            <a class="bg-zinc-100 px-3 py-2 block rounded" asp-area="Identity" asp-page="/Account/Login">Login</a>
-        </li>
-    }
-</ul>
+<nav class="flex items-center justify-between gap-2 border-b border-zinc-200 px-5 py-4">
+    <b class="text-xl">Dashboard</b>
+
+    <ul class="flex items-center gap-4">
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark font-bold" asp-area="Identity" asp-page="/Account/Manage/Index"
+                   title="Manage">Hello @User.Identity!.Name!</a>
+            </li>
+            <li class="nav-item">
+                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout"
+                      asp-route-returnUrl="@Url.Page("/", new { area = "" })"
+                      method="post">
+                    <button type="submit" class="rounded-lg bg-indigo-600 px-3 py-2 font-medium text-white">Logout</button>
+                </form>
+            </li>
+        }
+        else
+        {
+            <li class="block">
+                <a class="block rounded bg-indigo-600 px-3 py-2 text-white" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            </li>
+            <li class="block">
+                <a class="block rounded bg-zinc-100 px-3 py-2" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            </li>
+        }
+    </ul>
+</nav>

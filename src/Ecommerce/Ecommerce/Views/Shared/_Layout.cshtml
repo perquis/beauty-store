@@ -10,9 +10,11 @@
     <link rel="stylesheet" href="~/Ecommerce.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <div class="px-5" id="root">
-        @RenderBody()
+    <div id="root">
         <partial name="_LoginPartial" />
+        <div class="px-5">
+            @RenderBody()
+        </div>
     </div>
 
     <script src="~/js/site.js" asp-append-version="true"></script>
