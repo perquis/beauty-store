@@ -1,0 +1,65 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1 class="mb-4 text-2xl font-bold">@ViewData["Title"]</h1>
+
+<div class="grid-cols-1 grid gap-8 md:grid-cols-2">
+    <div>
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="space-y-4">
+            <h2 class="text-xl font-semibold">Create a new account.</h2>
+            <hr class="border-gray-300" />
+            <div asp-validation-summary="ModelOnly" class="text-red-600" role="alert"></div>
+            <div class="relative">
+                <input asp-for="Input.Email" class="input input-bordered w-full" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Input.Email" class="label">Email</label>
+                <span asp-validation-for="Input.Email" class="text-red-600"></span>
+            </div>
+            <div class="relative">
+                <input asp-for="Input.Password" class="input input-bordered w-full" autocomplete="new-password" aria-required="true" placeholder="password" />
+                <label asp-for="Input.Password" class="label">Password</label>
+                <span asp-validation-for="Input.Password" class="text-red-600"></span>
+            </div>
+            <div class="relative">
+                <input asp-for="Input.ConfirmPassword" class="input input-bordered w-full" autocomplete="new-password" aria-required="true" placeholder="password" />
+                <label asp-for="Input.ConfirmPassword" class="label">Confirm Password</label>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-red-600"></span>
+            </div>
+            <button id="registerSubmit" type="submit" class="btn btn-primary w-full">Register</button>
+        </form>
+    </div>
+    <div>
+        <section>
+            <h3 class="text-lg font-semibold">Use another service to register.</h3>
+            <hr class="border-gray-300" />
+            @if ((Model.ExternalLogins?.Count ?? 0) == 0)
+            {
+                <div>
+                    <p>
+                        There are no external authentication services configured. See this
+                        <a href="https://go.microsoft.com/fwlink/?LinkID=532715" class="text-blue-600 underline hover:text-blue-800">article about setting up this ASP.NET application to support logging in via external services</a>.
+                    </p>
+                </div>
+            }
+            else
+            {
+                <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="space-y-4">
+                    <div>
+                        <p>
+                            @foreach (var provider in Model.ExternalLogins!)
+                            {
+                                <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                            }
+                        </p>
+                    </div>
+                </form>
+            }
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

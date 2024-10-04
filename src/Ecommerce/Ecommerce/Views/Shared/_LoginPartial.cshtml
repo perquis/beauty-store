@@ -2,7 +2,7 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-<ul class="navbar-nav">
+<ul class="gap-2 flex">
     @if (SignInManager.IsSignedIn(User))
     {
         <li class="nav-item">
@@ -19,11 +19,11 @@
     }
     else
     {
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        <li class="block">
+            <a class="bg-indigo-600 px-3 py-2 text-white block rounded" asp-area="Identity" asp-page="/Account/Register">Register</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        <li class="block">
+            <a class="bg-zinc-100 px-3 py-2 block rounded" asp-area="Identity" asp-page="/Account/Login">Login</a>
         </li>
     }
 </ul>
