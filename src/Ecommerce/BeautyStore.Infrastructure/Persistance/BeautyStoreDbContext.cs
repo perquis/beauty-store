@@ -1,9 +1,10 @@
 ﻿using BeautyStore.Domain.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace BeautyStore.Infrastructure.Persistance
 {
-    public class BeautyStoreDbContext : DbContext
+    public class BeautyStoreDbContext : IdentityDbContext
     {
         public DbSet<Product> Products { get; set; } = default!;
 

@@ -5,11 +5,11 @@ VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce", "Ecommerce\Ecommerce.csproj", "{550A0BE0-7E76-494E-8125-A779CEF261F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeautyStore.Domain", "BeautyStore.Domain\BeautyStore.Domain.csproj", "{2B8A1C4A-80B5-4099-86DA-E92B84D4BE9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeautyStore.Domain", "BeautyStore.Domain\BeautyStore.Domain.csproj", "{2B8A1C4A-80B5-4099-86DA-E92B84D4BE9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeautyStore.Application", "BeautyStore.Application\BeautyStore.Application.csproj", "{C6D8E759-436B-4775-9EAE-BF8804077686}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeautyStore.Application", "BeautyStore.Application\BeautyStore.Application.csproj", "{C6D8E759-436B-4775-9EAE-BF8804077686}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeautyStore.Infrastructure", "BeautyStore.Infrastructure\BeautyStore.Infrastructure.csproj", "{2D58487B-D6DB-4712-85F4-79F0A952EBB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeautyStore.Infrastructure", "BeautyStore.Infrastructure\BeautyStore.Infrastructure.csproj", "{2D58487B-D6DB-4712-85F4-79F0A952EBB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
