@@ -10,14 +10,16 @@
     public async Task InvokeAsync(HttpContext context)
     {
         var user = context.User;
+        var request = context.Request;
+        var response = context.Response;
 
         if (user.Identity!.IsAuthenticated)
         {
             if (user.IsInRole("Admin"))
             {
-                if (!context.Request.Path.StartsWithSegments("/Dashboard"))
+                if (!request.Path.StartsWithSegments("/Dashboard"))
                 {
-                    context.Response.Redirect("/Dashboard");
+                    response.Redirect("/Dashboard");
                     return;
                 }
             }
