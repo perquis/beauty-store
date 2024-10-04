@@ -15,14 +15,16 @@ namespace BeautyStore.Infrastructure.Seeders
 
         public async Task Seed(string password)
         {
-            var user = await _userManager.FindByEmailAsync("admin@gmail.com");
+            var adminEmail = "admin@gmail.com";
+            var user = await _userManager.FindByEmailAsync(adminEmail);
 
             if (user == null)
             {
                 user = new IdentityUser
                 {
-                    UserName = "Admin",
-                    Email = "admin@gmail.com",
+                    UserName = adminEmail,
+                    Email = adminEmail,
+                    NormalizedUserName = adminEmail.ToUpper(),
                 };
 
                 await _userManager.CreateAsync(user, password);
