@@ -15,9 +15,19 @@
 
         if (user.Identity!.IsAuthenticated)
         {
+            var path = request.Path;
+
+            if (path.StartsWithSegments("/Identity") || path.StartsWithSegments("/Account"))
+            {
+                await _next(context);
+                return;
+            }
+
             if (user.IsInRole("Admin"))
             {
-                if (!request.Path.StartsWithSegments("/Dashboard"))
+                var isAdminPath = !path.StartsWithSegments("/Dashboard");
+
+                if (isAdminPath)
                 {
                     response.Redirect("/Dashboard");
                     return;
