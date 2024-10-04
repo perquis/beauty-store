@@ -26,6 +26,7 @@ namespace BeautyStore.Infrastructure.Seeders
                 };
 
                 await _userManager.CreateAsync(user, password);
+                await _userManager.AddToRoleAsync(user, "Admin");
             }
         }
     }
