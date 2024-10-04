@@ -1,0 +1,47 @@
+﻿@model BeautyStore.Application.Product.Commands.CreateProduct.CreateProductCommand
+
+@{
+    ViewData["Title"] = "CreateProduct";
+}
+
+<div class="mx-auto flex max-w-screen-sm flex-col items-start gap-5">
+    <form asp-action="CreateProduct" class="w-full py-5">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="flex w-full flex-col gap-1">
+            <label asp-for="Name" class="font-medium"></label>
+            <input asp-for="Name" class="block w-full rounded-md bg-zinc-100 p-2" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="flex w-full flex-col gap-1">
+            <label asp-for="Price" class="font-medium"></label>
+            <input asp-for="Price" class="block w-full rounded-md bg-zinc-100 p-2" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div class="flex w-full flex-col gap-1">
+            <label asp-for="Description" class="font-medium"></label>
+            <input asp-for="Description" class="block w-full rounded-md bg-zinc-100 p-2" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="flex w-full flex-col gap-1">
+            <label asp-for="Currency" class="font-medium"></label>
+            <input asp-for="Currency" class="block w-full rounded-md bg-zinc-100 p-2" />
+            <span asp-validation-for="Currency" class="text-danger"></span>
+        </div>
+        <div class="flex w-full flex-col gap-1">
+            <label asp-for="Stock" class="font-medium"></label>
+            <input asp-for="Stock" class="block w-full rounded-md bg-zinc-100 p-2" />
+            <span asp-validation-for="Stock" class="text-danger"></span>
+        </div>
+        <div class="flex w-full flex-col gap-1">
+            <label asp-for="Category" class="font-medium"></label>
+            <input asp-for="Category" class="block w-full rounded-md bg-zinc-100 p-2" />
+            <span asp-validation-for="Category" class="text-danger"></span>
+        </div>
+        <div class="mt-5 flex justify-end gap-2">
+            <a asp-action="Index" class="block rounded-md bg-zinc-950 px-3 py-2 font-medium text-white ease-in-out hover:opacity-90 focus-visible:opacity-90">Back to List</a>
+            <button class="rounded-md bg-indigo-600 px-3 py-2 font-medium text-white">Create</button>
+        </div>
+    </form>
+</div>
+

@@ -2,4 +2,18 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<main class="mx-auto max-w-screen-xl">
+    <h1 class="mt-5 text-2xl font-bold">Welcome to Dashboard! ✋</h1>
+    <p class="max-w-[480px] text-zinc-700">You can choose any options if you want to add, update or delete products in your online shop.</p>
+    
+    <hr class="border-zinc-300/50 my-3" />
+
+    <section>
+        <h2 class="text-xl font-bold">Products</h2>
+        <p class="text-zinc-700">You can manage your products here.</p>
+
+        <div class="mt-4 flex gap-2">
+            <a asp-action="CreateProduct" class="block rounded-md bg-zinc-950 px-3 py-2 font-medium text-white ease-in-out hover:opacity-90 focus-visible:opacity-90">Create product</a>
+        </div>
+    </section>
+</main>
