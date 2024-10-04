@@ -23,7 +23,9 @@ namespace BeautyStore.Infrastructure.Extensions
 				.AddEntityFrameworkStores<BeautyStoreDbContext>();
 
             services.AddScoped<IProductRepository, ProductRepository>();
+
             services.AddScoped<UserRolesSeeder>();
+            services.AddScoped<SuperUsersSeeder>();
 
             return services;
         }

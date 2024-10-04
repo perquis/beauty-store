@@ -11,8 +11,10 @@ builder.Services.AddApplication();
 var app = builder.Build();
 var scope = app.Services.CreateScope();
 var seeder = scope.ServiceProvider.GetRequiredService<UserRolesSeeder>();
+var superUsersSeeder = scope.ServiceProvider.GetRequiredService<SuperUsersSeeder>();
 
 await seeder.Seed();
+await superUsersSeeder.Seed("Admin@123");
 
 if (!app.Environment.IsDevelopment())
 {
