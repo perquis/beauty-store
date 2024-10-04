@@ -3,6 +3,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MediatR;
 using BeautyStore.Application.Product.Commands.CreateProduct;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Ecommerce.Controllers
 {
@@ -17,18 +18,23 @@ namespace Ecommerce.Controllers
             _mediator = mediator;
         }
 
+        [Authorize(Roles = "Admin")]
+        [Route("/Dashboard")]
         public IActionResult Index()
         {
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
+        [Route("/Dashboard/Product/Create")]
         public IActionResult CreateProduct()
         {
             return View();
         }
 
         [HttpPost]
-        [Route("/Product/Create")]
+        [Authorize(Roles = "Admin")]
+        [Route("/Dashboard/Product/Create")]
         public async Task<IActionResult> CreateProduct(CreateProductCommand command)
         {
             if (!ModelState.IsValid)
