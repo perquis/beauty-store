@@ -12,6 +12,9 @@
         public List<ProductImage>? Images { get; set; } = new List<ProductImage>();
         public string? EncodedName { get; set; } = default!;
 
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+
         public void EncodeName() => EncodedName = Name.Replace(" ", "-").ToLower();
     }
 }

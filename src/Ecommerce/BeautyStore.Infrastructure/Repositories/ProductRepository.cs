@@ -58,6 +58,8 @@ namespace BeautyStore.Infrastructure.Repositories
 
             productToUpdate.Currency = product.Currency;
 
+            productToUpdate.UpdatedAt = DateTime.UtcNow;
+
             await _context.SaveChangesAsync();
         }
 
