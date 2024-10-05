@@ -13,6 +13,16 @@ namespace BeautyStore.Infrastructure.Repositories
             _context = context;
         }
 
+        public Task<IEnumerable<Product>> GetAllProductsAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Product> GetProductByIdAsync(string id)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task CreateProductAsync(Product product)
         {
             product.EncodeName();
@@ -21,22 +31,12 @@ namespace BeautyStore.Infrastructure.Repositories
             await _context.SaveChangesAsync();
         }
 
-        Task<Product> IProductRepository.DeleteProductAsync(int id)
+        public Task UpdateProductAsync(Product product)
         {
             throw new NotImplementedException();
         }
 
-        Task<IEnumerable<Product>> IProductRepository.GetAllProductsAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<Product> IProductRepository.GetProductByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<Product> IProductRepository.UpdateProductAsync(Product product)
+        public Task DeleteProductAsync(string id)
         {
             throw new NotImplementedException();
         }

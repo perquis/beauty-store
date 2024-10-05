@@ -5,9 +5,9 @@ namespace BeautyStore.Domain.Interfaces
     public interface IProductRepository
     {
         Task<IEnumerable<Product>> GetAllProductsAsync();
-        Task<Product> GetProductByIdAsync(int id);
+        Task<Product> GetProductByIdAsync(string id);
         Task CreateProductAsync(Product product);
-        Task<Product> UpdateProductAsync(Product product);
-        Task<Product> DeleteProductAsync(int id);
+        Task UpdateProductAsync(Product product);
+        Task DeleteProductAsync(string id);
     }
 }
