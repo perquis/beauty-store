@@ -3,6 +3,7 @@ using System;
 using BeautyStore.Infrastructure.Persistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BeautyStore.Infrastructure.Migrations
 {
     [DbContext(typeof(BeautyStoreDbContext))]
-    partial class BeautyStoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241005072859_Added-Nullable-Property-To-Product-Model")]
+    partial class AddedNullablePropertyToProductModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

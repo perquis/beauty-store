@@ -25,14 +25,12 @@ namespace BeautyStore.Application.Product.Commands.CreateProduct
                 .NotEmpty();
 
             RuleFor(x => x.Category)
-                .NotEmpty();
+                .NotEmpty()
+                .IsEnumName(typeof(ProductCategory));
 
             RuleFor(x => x.Currency)
                 .NotEmpty()
                 .IsEnumName(typeof(Currency));
-
-            RuleFor(x => x.EncodedName)
-                .NotEmpty();
         }
     }
 }

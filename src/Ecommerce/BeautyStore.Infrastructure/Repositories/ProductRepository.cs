@@ -15,7 +15,9 @@ namespace BeautyStore.Infrastructure.Repositories
 
         public async Task CreateProductAsync(Product product)
         {
+            product.EncodeName();
             _context.Products.Add(product);
+
             await _context.SaveChangesAsync();
         }
 

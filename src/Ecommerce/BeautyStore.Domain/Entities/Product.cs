@@ -10,8 +10,8 @@
         public int Stock { get; set; } = 0;
         public ProductCategory Category { get; set; }
         public List<ProductImage>? Images { get; set; } = new List<ProductImage>();
-        public string EncodedName { get; set; } = default!;
+        public string? EncodedName { get; set; } = default!;
 
-        public void EncodeName() => Name.Replace(" ", "-").ToLower();
+        public void EncodeName() => EncodedName = Name.Replace(" ", "-").ToLower();
     }
 }
