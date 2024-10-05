@@ -1,6 +1,8 @@
-﻿using BeautyStore.Domain.Entities;
+﻿using System.Net;
+using BeautyStore.Domain.Entities;
 using BeautyStore.Domain.Interfaces;
 using BeautyStore.Infrastructure.Persistance;
+using Microsoft.EntityFrameworkCore;
 
 namespace BeautyStore.Infrastructure.Repositories
 {
@@ -13,14 +15,22 @@ namespace BeautyStore.Infrastructure.Repositories
             _context = context;
         }
 
-        public Task<IEnumerable<Product>> GetAllProductsAsync()
+        public async Task<IEnumerable<Product>> GetAllProductsAsync()
         {
-            throw new NotImplementedException();
+            var products = await _context.Products.ToListAsync();
+            return products;
         }
 
-        public Task<Product> GetProductByIdAsync(string id)
+        public async Task<Product> GetProductByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
+
+            if (product == null)
+            {
+                throw new HttpException(HttpStatusCode.NotFound, "Product not found");
+            }
+
+            return product;
         }
 
         public async Task CreateProductAsync(Product product)
@@ -31,14 +41,36 @@ namespace BeautyStore.Infrastructure.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public Task UpdateProductAsync(Product product)
+        public async Task UpdateProductAsync(Product product)
         {
-            throw new NotImplementedException();
+            var productToUpdate = await _context.Products.FirstOrDefaultAsync(p => p.Id == product.Id);
+
+            if (productToUpdate == null) {
+                throw new HttpException(HttpStatusCode.NotFound, "Product not found");
+            }
+
+            productToUpdate.Name = product.Name;
+            productToUpdate.Description = product.Description;
+            
+            productToUpdate.Price = product.Price;
+            productToUpdate.Stock = product.Stock;
+            productToUpdate.Category = product.Category;
+
+            productToUpdate.Currency = product.Currency;
+
+            await _context.SaveChangesAsync();
         }
 
-        public Task DeleteProductAsync(string id)
+        public async Task DeleteProductAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var product = await GetProductByIdAsync(id);
+
+            if (product == null) {
+                throw new HttpException(HttpStatusCode.NotFound, "Product not found");
+            }
+
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync();
         }
     }
 }
