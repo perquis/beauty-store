@@ -1,6 +1,7 @@
 using BeautyStore.Application.Extensions;
 using BeautyStore.Infrastructure.Extensions;
 using BeautyStore.Infrastructure.Seeders;
+using Ecommerce.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,11 +10,12 @@ builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
 
 var app = builder.Build();
+
 var scope = app.Services.CreateScope();
-var seeder = scope.ServiceProvider.GetRequiredService<UserRolesSeeder>();
+var userRolesSeeder = scope.ServiceProvider.GetRequiredService<UserRolesSeeder>();
 var superUsersSeeder = scope.ServiceProvider.GetRequiredService<SuperUsersSeeder>();
 
-await seeder.Seed();
+await userRolesSeeder.Seed();
 await superUsersSeeder.Seed("Admin@123");
 
 if (!app.Environment.IsDevelopment())
@@ -22,7 +24,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseMiddleware<AdminRedirectMiddleware>();
+app.AddMiddlewares();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
