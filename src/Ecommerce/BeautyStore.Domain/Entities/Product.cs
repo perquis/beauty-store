@@ -12,6 +12,8 @@
         public List<ProductImage>? Images { get; set; } = new List<ProductImage>();
         public string? EncodedName { get; set; } = default!;
 
+        public string? CreatedByUserId { get; set; }
+
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
