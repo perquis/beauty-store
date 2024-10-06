@@ -31,6 +31,11 @@ namespace BeautyStore.Application.Product.Commands.CreateProduct
             RuleFor(x => x.Currency)
                 .NotEmpty()
                 .IsEnumName(typeof(Currency));
+
+            RuleFor(x => x.Images)
+                .NotEmpty()
+                .Matches(@"^;?https://")
+                .WithMessage("The links should be with prefix 'https://' or ';https:// if you want to add more than one link.'");
         }
     }
 }

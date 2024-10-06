@@ -23,6 +23,7 @@ namespace BeautyStore.Infrastructure.Extensions
 				.AddEntityFrameworkStores<BeautyStoreDbContext>();
 
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductImagesRepository, ProductImagesRepository>();
 
             services.AddScoped<UserRolesSeeder>();
             services.AddScoped<SuperUsersSeeder>();

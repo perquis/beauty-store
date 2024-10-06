@@ -1,6 +1,4 @@
-﻿using System.Text.Encodings.Web;
-
-namespace BeautyStore.Domain.Entities
+﻿namespace BeautyStore.Domain.Entities
 {
     public class ProductImage
     {

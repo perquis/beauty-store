@@ -9,7 +9,9 @@ namespace BeautyStore.Application.Mappings
         public ProductMappingProfile(IUserSession session)
         {
             CreateMap<Domain.Entities.Product, ProductDto>();
-            CreateMap<ProductDto, Domain.Entities.Product>();
+
+            CreateMap<ProductDto, Domain.Entities.Product>()
+                .ForMember(x => x.Images, opt => opt.Ignore());
         }
     }
 }

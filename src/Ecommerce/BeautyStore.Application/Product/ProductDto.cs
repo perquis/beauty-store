@@ -10,5 +10,6 @@
         public int Stock { get; set; } = 0;
         public string Category { get; set; } = "Makeup";
         public string? EncodedName { get; set; } = default!;
+        public string? Images { get; set; }
     }
 }
